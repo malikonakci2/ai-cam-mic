@@ -1,0 +1,8 @@
+node_modules/
+.vscode/
+.wrangler/
+data/
+agree.json
+.env
+.dev.vars
+npm-debug.log*

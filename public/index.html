@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Camera System</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="camera-pane">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Ollama Moondream</p>
+            <h1>AI Camera + Microphone</h1>
+          </div>
+          <div class="status" id="status">Idle</div>
+        </div>
+
+        <div class="video-wrap">
+          <video id="video" autoplay muted playsinline></video>
+          <canvas id="canvas" hidden></canvas>
+          <div class="video-empty">Camera preview will appear here</div>
+        </div>
+
+        <div class="controls">
+          <button id="startMedia">Start Camera + Mic</button>
+          <button id="analyzeNow" disabled>Analyze Scene</button>
+          <button id="recordAudio" disabled>Record Audio</button>
+          <label class="toggle">
+            <input id="autoAnalyze" type="checkbox" disabled>
+            <span>Auto analyze</span>
+          </label>
+          <label class="field">
+            <span>Every</span>
+            <input id="interval" type="number" min="5" max="120" value="12">
+            <span>sec</span>
+          </label>
+        </div>
+
+        <label class="prompt-box">
+          <span>Prompt</span>
+          <textarea id="prompt">Analyze this camera frame. Mention visible people, vehicles, safety concerns, and notable activity. Do not identify private people. If a person is visible, include PERSON_DETECTED. If a vehicle is visible, include VEHICLE_DETECTED.</textarea>
+        </label>
+      </section>
+
+      <aside class="side-pane">
+        <section class="result-panel">
+          <div class="panel-heading">
+            <h2>Latest Result</h2>
+            <span id="latency">-</span>
+          </div>
+          <p id="latestResponse">No scene analyzed yet.</p>
+          <div class="transcript" id="transcript">No microphone transcript yet.</div>
+          <div class="badges">
+            <span id="personBadge" class="badge">Person</span>
+            <span id="vehicleBadge" class="badge">Vehicle</span>
+            <span id="speechBadge" class="badge">Speech</span>
+          </div>
+        </section>
+
+        <section class="events-panel">
+          <div class="panel-heading">
+            <h2>Event Log</h2>
+            <button id="clearEvents">Clear</button>
+          </div>
+          <div id="events" class="events"></div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

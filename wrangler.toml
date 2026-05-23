@@ -1,0 +1,10 @@
+name = "ai-camera-system"
+main = "src/worker.js"
+compatibility_date = "2026-05-23"
+
+[ai]
+binding = "AI"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"

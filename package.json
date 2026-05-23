@@ -1,0 +1,18 @@
+{
+  "name": "ai-camera-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public AI camera and microphone dashboard using Cloudflare Workers AI.",
+  "main": "src/worker.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
